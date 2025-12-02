@@ -1,70 +1,131 @@
-# Getting Started with Create React App
+### 🎬 usePopcorn – Movie Explorer App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React course project built as part of the “Ultimate React Course” by Jonas Schmedtmann.
 
-## Available Scripts
+usePopcorn is a movie search and watchlist application where users can search movies from the OMDb API, view details, and maintain their own watched list. This app was built while learning advanced React concepts such as state management, side effects, custom hooks, controlled components, and asynchronous data fetching.
 
-In the project directory, you can run:
+## 🚀 Live Demo
 
-### `npm start`
+Netlify Deployment:
+https://usepopcorn-apsar.netlify.app
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 📌 Features
+-🔍 Search & Browse
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  -Search for any movie using the OMDb API
 
-### `npm test`
+  -Dynamic search with live results
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🎞 Movie Details
 
-### `npm run build`
+  -View detailed information about a selected movie
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  -IMDb rating, plot, actors, release year, etc.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## ⭐ Add to Watched List
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ -Add movies to your personal watched list
 
-### `npm run eject`
+## Stores:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+-IMDb rating
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+-User rating
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+-Runtime
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+-Delete movies from the list
 
-## Learn More
+## 🧠 Local State Management
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+-React hooks: useState, useEffect, useRef
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+-AbortController for canceling API requests
 
-### Code Splitting
+## 🛠 Built with
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+-React (Vite)
 
-### Analyzing the Bundle Size
+-OMDb API
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+-CSS for styling
 
-### Making a Progressive Web App
+-Netlify for deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 📁 Folder Structure
 
-### Advanced Configuration
+-src/
+  -components/
+    -Navbar.jsx
+    -MovieList.jsx
+    -MovieDetails.jsx
+    -WatchedList.jsx
+  -App.jsx
+  -index.css
+  -main.jsx
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 🔧 How It Works
+-API Fetching
 
-### Deployment
+-Movies are fetched using:
+https://www.omdbapi.com/?apikey=YOUR_KEY&s=QUERY
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+-Netlify requires HTTPS, so the fetch URL uses:
+https://www.omdbapi.com/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+-AbortController
+To avoid race conditions & unnecessary API calls:
+
+const controller = new AbortController();
+
+useEffect(() => {
+  const controller = new AbortController();
+  fetch(url, { signal: controller.signal });
+  return () => controller.abort();
+}, [query]);
+
+## 🐛 Netlify Deployment Issue (Fixed)
+
+-This project initially worked on localhost, but not on Netlify because:
+
+## ❌ Wrong
+http://www.omdbapi.com
+
+-Netlify blocks HTTP requests because the site is served via HTTPS.
+
+## ✔ Fixed
+https://www.omdbapi.com
+
+-Using HTTPS resolved the “fetch not working” issue.
+
+## 📚 Course Project
+-This project was built as part of:
+⭐ Jonas Schmedtmann – The Ultimate React Course (2024)
+
+## It covers:
+
+- Component architecture
+
+- State management
+
+- Handling side effects
+
+- Fetching data
+
+- Conditional rendering
+
+- Custom hooks
+
+This app is one of the major practical hands-on projects in the course.
+
+## ▶️ Running Locally
+1. Clone the repo
+git clone https://github.com/yourusername/usepopcorn.git
+cd usepopcorn
+
+2. Install dependencies
+npm install
+
+3. Start development server
+npm run dev
