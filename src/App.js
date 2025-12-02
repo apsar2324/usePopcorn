@@ -36,8 +36,6 @@ export default function App() {
   const [selectedID, setSelectedID] = useState(null);
   const [watched, setWatched] = useState([]);
 
-  const controller = new AbortController();
-
   function handleSelect(id) {
     setSelectedID(id);
   }
@@ -56,6 +54,7 @@ export default function App() {
 
   useEffect(
     function () {
+      const controller = new AbortController();
       async function fetchMovies() {
         try {
           setIsloading(true);
