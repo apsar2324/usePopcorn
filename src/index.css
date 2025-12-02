@@ -348,7 +348,7 @@ body {
 
 @media (max-width: 1024px) {
   .nav-bar {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     height: auto;
     padding: 1.6rem;
     row-gap: 1.6rem;
