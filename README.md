@@ -10,71 +10,71 @@ Netlify Deployment:
 https://usepopcorn-apsar.netlify.app
 
 ## 📌 Features
--🔍 Search & Browse
+## 🔍 Search & Browse
 
-  -Search for any movie using the OMDb API
+  - Search for any movie using the OMDb API
 
-  -Dynamic search with live results
+  - Dynamic search with live results
 
 ## 🎞 Movie Details
 
-  -View detailed information about a selected movie
+  - View detailed information about a selected movie
 
-  -IMDb rating, plot, actors, release year, etc.
+  - IMDb rating, plot, actors, release year, etc.
 
 ## ⭐ Add to Watched List
 
- -Add movies to your personal watched list
+ - Add movies to your personal watched list
 
 ## Stores:
 
--IMDb rating
+- IMDb rating
 
--User rating
+- User rating
 
--Runtime
+- Runtime
 
--Delete movies from the list
+- Delete movies from the list
 
 ## 🧠 Local State Management
 
--React hooks: useState, useEffect, useRef
+- React hooks: useState, useEffect, useRef
 
--AbortController for canceling API requests
+- AbortController for canceling API requests
 
 ## 🛠 Built with
 
--React (Vite)
+- React (Vite)
 
--OMDb API
+- OMDb API
 
--CSS for styling
+- CSS for styling
 
--Netlify for deployment
+- Netlify for deployment
 
 ## 📁 Folder Structure
 
--src/
-  -components/
-    -Navbar.jsx
-    -MovieList.jsx
-    -MovieDetails.jsx
-    -WatchedList.jsx
-  -App.jsx
-  -index.css
+src/
+  components/
+    Navbar.jsx
+    MovieList.jsx
+    MovieDetails.jsx
+    WatchedList.jsx
+    App.jsx
+   index.css
   -main.jsx
 
 ## 🔧 How It Works
--API Fetching
+- API Fetching
 
--Movies are fetched using:
+- Movies are fetched using:
 https://www.omdbapi.com/?apikey=YOUR_KEY&s=QUERY
 
 
--Netlify requires HTTPS, so the fetch URL uses:
+- Netlify requires HTTPS, so the fetch URL uses:
 https://www.omdbapi.com/
 
--AbortController
+- AbortController
 To avoid race conditions & unnecessary API calls:
 
 const controller = new AbortController();
@@ -87,20 +87,20 @@ useEffect(() => {
 
 ## 🐛 Netlify Deployment Issue (Fixed)
 
--This project initially worked on localhost, but not on Netlify because:
+- This project initially worked on localhost, but not on Netlify because:
 
 ## ❌ Wrong
 http://www.omdbapi.com
 
--Netlify blocks HTTP requests because the site is served via HTTPS.
+- Netlify blocks HTTP requests because the site is served via HTTPS.
 
 ## ✔ Fixed
 https://www.omdbapi.com
 
--Using HTTPS resolved the “fetch not working” issue.
+- Using HTTPS resolved the “fetch not working” issue.
 
 ## 📚 Course Project
--This project was built as part of:
+- This project was built as part of:
 ⭐ Jonas Schmedtmann – The Ultimate React Course (2024)
 
 ## It covers:
